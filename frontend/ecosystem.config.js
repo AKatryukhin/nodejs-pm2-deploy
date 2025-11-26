@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../../.env.deploy' });
+require('dotenv').config({ path: '~/.env.deploy' });
 
 const { DEPLOY_USER, DEPLOY_BRANCH, DEPLOY_HOST, DEPLOY_PATH, REPO_URL } = process.env;
 

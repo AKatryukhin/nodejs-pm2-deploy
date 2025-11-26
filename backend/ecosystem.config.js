@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../../.env.deploy' });
+require('dotenv').config({ path: '~/.env.deploy' });
 
 const {
   DEPLOY_USER, DEPLOY_BRANCH, DEPLOY_HOST, DEPLOY_PATH, REPO_URL,
@@ -26,7 +26,7 @@ module.exports = {
       repo: REPO_URL,
       path: `${DEPLOY_PATH}-backend`,
       'pre-deploy-local': `scp ./*.env* ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
-      'post-deploy': 'cd backend && . ~/.nvm/nvm.sh && npm install && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
+      'post-deploy': 'cd backend && . ~/.nvm/nvm.sh && npm ci && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
     },
   },
 };
