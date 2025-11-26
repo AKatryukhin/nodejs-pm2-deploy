@@ -23,7 +23,7 @@ module.exports = {
       ref: DEPLOY_BRANCH,
       repo: REPO_URL,
       path: `${DEPLOY_PATH}-frontend`,
-      'post-deploy': 'cd frontend && npm install && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
+      'post-deploy': 'cd frontend && . ~/.nvm/nvm.sh && nvm use 16 && npm install && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
       'pre-setup': 'which git || sudo apt-get install git -y && (which serve || npm install -g serve)',
     },
   },
